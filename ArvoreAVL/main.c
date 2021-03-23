@@ -36,19 +36,19 @@ int main(){
 
     arv.Raiz = NULL;
     add.chave = 3;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
     add.chave = 2;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
     add.chave = 4;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
     add.chave = 6;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
     add.chave = 7;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
     add.chave = 1;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
     add.chave = 5;
-    arv.Raiz = insere_elemento(arv.Raiz, add);
+    arv.Raiz = insereElementoNaoRecursiva(arv.Raiz, add);
 
 
     int qtdFolhas = contaNos(arv.Raiz, 0);

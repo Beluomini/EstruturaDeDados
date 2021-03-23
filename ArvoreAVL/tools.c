@@ -217,6 +217,66 @@ Nodo* remove_elemento(Nodo *T, Registro X){
     return T;
 }
 
+Nodo* insereElementoNaoRecursiva(Nodo *T, Registro X){
+
+    Nodo *aux;
+    Nodo *aux2;
+
+    if (T==NULL){
+        T=(Nodo*)malloc(sizeof(Nodo));
+        T->Reg=X;
+        T->Esq=NULL;
+        T->Dir=NULL;
+    }else{
+        aux = T;
+        aux2 = T;
+        while(aux2 != NULL){
+            if(X.chave < aux->Reg.chave){
+                aux2 = aux->Esq;
+                if(aux2 == NULL){
+                    aux->Esq =(Nodo*)malloc(sizeof(Nodo));
+                    aux->Esq->Reg=X;
+                    aux->Esq->Esq=NULL;
+                    aux->Esq->Dir=NULL;
+                }else{
+                    aux = aux2;
+                }
+            }else if(X.chave > aux->Reg.chave){
+                aux2 = aux->Dir;
+                if(aux2 == NULL){
+                    aux->Dir =(Nodo*)malloc(sizeof(Nodo));
+                    aux->Dir->Reg=X;
+                    aux->Dir->Esq=NULL;
+                    aux->Dir->Dir=NULL;
+                }else{
+                    aux = aux2;
+                }
+            }else{
+                return T;
+            }
+        }
+        
+
+        if (abs(altura(T->Esq)-altura(T->Dir))>1){                      //se existe diferenca maior que 1 é preciso rotacionar
+
+            if (altura(T->Dir)>altura(T->Esq)){                         //se a altura for maior pra direita
+
+                    if(altura(T->Dir->Dir)>altura(T->Dir->Esq))         //e do filho tb for maior pra direita
+                        T = rot_esq(T);                                 //rotacao simples pra esquerda
+                    else
+                        T = rot_dupla_esq(T);                           //senão a rotação é dupla pra esquerda
+
+            }else{                                                      //neste caso a altura é maior pra esquerda
+                if(altura(T->Esq->Esq)>altura(T->Esq->Dir))             //se para o filho tb for maior pra esquerda
+                   T = rot_dir(T);                                      //rotacao simples pra direita
+                else
+                   T = rot_dupla_dir(T);                                //senão rotação dupla pra direita
+            }
+        }
+    }
+    return T;
+}
+
 /*-------------------------------- I M P R E S S Ã O   D E   A R V O R E S -------------------------------------*/
 
 void imprimeRED(struct Nodo *q){
