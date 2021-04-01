@@ -6,29 +6,39 @@ Funções:
 #include "tools.c"
 
 int main(){
-    char palavra[20];
-    char palavraHash[20];
     int opcao = 0;
+    int tamanho = 0;
 
     do{
         printf("\nPrograma de alocacao Hash --------------------");
         printf("\n0 - Sair");
-        printf("\n1 - aaaaa");
-        printf("\n2 - bbbbb");
+        printf("\n1 - Alocacao Hash com Enderecamento Aberto");
+        printf("\n2 - Alocacao Hash com Lista Encadeada");
         printf("\nOpcao --> ");
 
         scanf("%d", &opcao);
-        switch (opcao){
-        case 1:
-            printf("\nEscolheu a opcao 1");
+
+        if(opcao==1){
+            printf("\nAlocacao Hash com Enderecamento Aberto");
+            printf("\nDigite o numero de caracteres: ");
+            scanf("%d", &tamanho);
+            char *palavra[tamanho];
+            char *palavraHash[tamanho];
+            printf("\nDigite a palavra: ");
+            scanf("%s", &palavra);
+            enderecamentoAberto(palavra, palavraHash, tamanho);
+            imprimirStr(palavraHash, tamanho);
             break;
         
-        default:
+        }else if(opcao==2){
+            printf("\nAlocacao Hash com Lista Encadeada");
+            break;
+        }else{
             printf("\nOpcao invalida escolha outro valor\n");
             break;
         }
 
-    }while(opcao = 0);
+    }while(opcao != 0);
 
     return 0;
 }
