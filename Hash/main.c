@@ -8,6 +8,7 @@ Funções:
 int main(){
     int opcao = 0;
     int tamanho = 0;
+    int tamanhoHash = 0;
 
     do{
         printf("\nPrograma de alocacao Hash --------------------");
@@ -32,6 +33,17 @@ int main(){
         
         }else if(opcao==2){
             printf("\nAlocacao Hash com Lista Encadeada");
+            printf("\nem producao...");
+            // printf("\nDigite o numero de caracteres: ");
+            // scanf("%d", &tamanho);
+            // printf("\nDigite o tamanho do vetor hash: ");
+            // scanf("%d", &tamanhoHash);
+            // char *palavra[tamanho];
+            // TipoLista *palavraHash[tamanhoHash];
+            // printf("\nDigite a palavra: ");
+            // scanf("%s", &palavra);
+            // listaEncadeada(palavra, palavraHash, tamanho, tamanhoHash);
+            // imprimirListaEncadeada(palavraHash, tamanhoHash);
             break;
         }else{
             printf("\nOpcao invalida escolha outro valor\n");
